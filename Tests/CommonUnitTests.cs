@@ -19,7 +19,7 @@ namespace ClipboardSqlFormatter.Tests
 	,""obj"".""EditorID"" AS ""CUREDITOR""
 	,""obj"".""EditorID"" AS ""CurrentEditorID""
 	,(
-		SELECT CASE
+		SELECT CASE 
 				WHEN (
 						SELECT stateid
 						FROM lderc
@@ -36,7 +36,7 @@ namespace ClipboardSqlFormatter.Tests
 				END
 		) AS ""DeleteDate""
 	,(
-		SELECT CASE
+		SELECT CASE 
 				WHEN (
 						SELECT stateid
 						FROM lderc
