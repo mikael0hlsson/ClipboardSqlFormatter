@@ -1,30 +1,24 @@
 ﻿using ClipboardSqlFormatter.Properties;
 using log4net;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClipboardSqlFormatter
 {
-    class MainApplicationContext:ApplicationContext
+    internal class MainApplicationContext : ApplicationContext
     {
-        #region Регистратор
         private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        #endregion
 
-        NotifyIcon notifyIcon;
-        MenuItem enabledMenuItem;
-        MenuItem closeMenuItem;
-        ClipboardMonitor clipboardMonitor;
-        bool inSettingToClipboard = false;
+        private NotifyIcon notifyIcon;
+        private MenuItem enabledMenuItem;
+        private MenuItem closeMenuItem;
+        private ClipboardMonitor clipboardMonitor;
+        private bool inSettingToClipboard = false;
 
-        SqlFormatter sqlFormatter;
+        private SqlFormatter sqlFormatter;
 
         public MainApplicationContext()
         {
@@ -42,7 +36,7 @@ namespace ClipboardSqlFormatter
                 ContextMenu = new ContextMenu(new[] { enabledMenuItem, closeMenuItem }),
                 Visible = true
             };
-            
+
             clipboardMonitor = new ClipboardMonitor(OnClipboardChanged);
             sqlFormatter = new SqlFormatter();
 

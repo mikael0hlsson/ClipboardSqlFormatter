@@ -1,14 +1,12 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace ClipboardSqlFormatter
 {
     public partial class ClipboardMonitor : Control
     {
-        IntPtr nextClipboardViewer;
+        private IntPtr nextClipboardViewer;
 
         public event EventHandler<ClipboardChangedEventArgs> ClipboardChanged;
 
@@ -17,7 +15,7 @@ namespace ClipboardSqlFormatter
             nextClipboardViewer = (IntPtr)SetClipboardViewer((int)Handle);
         }
 
-        public ClipboardMonitor(EventHandler<ClipboardChangedEventArgs> handler):this()
+        public ClipboardMonitor(EventHandler<ClipboardChangedEventArgs> handler) : this()
         {
             ClipboardChanged += handler;
         }
@@ -61,7 +59,7 @@ namespace ClipboardSqlFormatter
             }
         }
 
-        void OnClipboardChanged()
+        private void OnClipboardChanged()
         {
             try
             {

@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -16,9 +14,7 @@ namespace ClipboardSqlFormatter
 {
     public class SqlFormatter
     {
-        #region Регистратор
         private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        #endregion
 
         public bool FormatSql(string inputText, out string outputText)
         {
